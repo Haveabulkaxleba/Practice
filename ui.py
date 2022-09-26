@@ -15,7 +15,7 @@ def choice():
         elif text == '4':
             identifier = input('Введите id для редактирования данных: ')
             current = input('Что меняем: 1 - Фамилия, 2 - Имя, 3 - Телефон, 4 - Должность')
-            new = input('Введите новюую запись: ')
+            new = input('Введите новую запись: ')
             act.edit_data(identifier, current, new)
         elif text == '5':
             break

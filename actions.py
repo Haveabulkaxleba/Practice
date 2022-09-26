@@ -8,4 +8,4 @@ def edit_data(undifier, current, new_data):
             data[current] = new_data
             new_line = ', '.join(data)
     else:
-        print(" Такого сотрудника нет ")
+        print(" Такого сотрудника нет. ")

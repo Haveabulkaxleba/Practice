@@ -15,19 +15,18 @@ def choice():
                 while True:
                     surname = input('''Введите данные.
 Фамилия: ''')
-                    if surname.isalpha():
+                    if surname.isalpha() and surname.istitle():
                         break
-                    if not surname.isalpha():
-                        print('Введены некорректные символы. Повторите ввод.')
+                    if not surname.isalpha() or not surname.istitle():
+                        print('Введите корректные символы (первая буква фамилии должна быть заглавная).')
                         continue
                 while True:
                     name = input('Имя: ')
-                    if name.isalpha():
+                    if name.isalpha() and name.istitle():
                         break
-                    if not name.isalpha():
-                        print('Введены некорректные символы. Повторите ввод.')
+                    if not name.isalpha() or not name.istitle():
+                        print('Введите корректные символы (первая буква имени должна быть заглавная).')
                         continue
-                    print('Введены некорректные символы. Повторите ввод.')
                 while True:
                     number = input('Введите номер телефона (11 цифр без пробелов): ')
                     if number.isnumeric() and len(number) == 11:
@@ -36,10 +35,10 @@ def choice():
                         print('Номер должен состоять из 11 цифр.')
                 while True:
                     position = input('Укажите должность: ')
-                    if position.isalpha():
+                    if position.isalpha() and position.istitle():
                         break
-                    else:
-                        print('Название долножсти должно состоять только из букв. Повторите ввод.')
+                    elif not position.isalpha() or not position.istitle():
+                        print('Введите корректные символы (название должности должно начинать с заглавной буквы)')
                 while True:
                     salary = input('Введите размер зарплаты: ')
                     if salary.isdigit():
@@ -89,39 +88,37 @@ def choice():
                 while True:
                     if choice == '1':
                         surname = input('Введите новую фамилию: ')
-                        if surname.isalpha():
+                        if surname.isalpha() and surname.istitle():
                             act.edit_surname(identifier, surname)
                             print('Данные были изменены')
                             break
-                        if not surname.isalpha():
-                            print('Введены некорректные символы. Повторите ввод.')
+                        if not surname.isalpha() or not surname.istitle():
+                            print('Введите корректные символы (первая буква фамилии должна быть заглавная).')
                     elif choice == '2':
-                        while True:
-                            name = input('Введите новое имя: ')
-                            if name.isalpha():
-                                act.edit_name(identifier, name)
-                                print('Данные были изменены')
-                                break
-                            else:
-                                print('Введены некорректные символы. Повторите ввод.')
+                        name = input('Введите новое имя: ')
+                        if name.isalpha() and name.istitle():
+                            act.edit_name(identifier, name)
+                            print('Данные были изменены')
+                            break
+                        if not name.isalpha() or not name.istitle():
+                            print('Введите корректные символы (первая буква имени должна быть заглавная).')
                     elif choice == '3':
-                        while True:
-                            new_num = input('Введите новый номер телефона (11 цифр без пробелов): ')
-                            if new_num.isnumeric() and len(new_num) == 11:
-                                new = new_num.replace(' ', '')
-                                act.edit_number(identifier, new)
-                                print('Данные были изменены')
-                                break
-                            else:
-                                print('Номер должен состоять из 11 цифр.')
-                    elif choice == '4':
-                        pos = input('Введите название новой должности: ')
-                        if pos.isalpha():
-                            act.edit_position(identifier, pos)
+                        new_num = input('Введите новый номер телефона (11 цифр без пробелов): ')
+                        if new_num.isnumeric() and len(new_num) == 11:
+                            new = new_num.replace(' ', '')
+                            act.edit_number(identifier, new)
                             print('Данные были изменены')
                             break
                         else:
-                            print('Введены некорректные символы. Повторите ввод.')
+                            print('Номер должен состоять из 11 цифр.')
+                    elif choice == '4':
+                        pos = input('Введите название новой должности: ')
+                        if pos.isalpha() and pos.istitle():
+                            act.edit_position(identifier, pos)
+                            print('Данные были изменены')
+                            break
+                        elif not pos.isalpha() or not pos.istitle():
+                            print('Введите корректные символы (название должности должно начинать с заглавной буквы)')
                     else:
                         print('Введены некорректные символы. Повторите ввод.')
                         break

@@ -25,13 +25,13 @@ def add_data(surname, name, number, pos, salary):
         last_l = last_l.split('; ')
         lst.insert(0, str(int(last_l[0]) + 1))
         new_line = '; '.join(lst)
-        s = f'{new_line}'
+        s += f'{new_line}'
         e.writelines(f'{s}')
     else:
         last_line1 = last_line.split('; ')
         lst.insert(0, str(int(last_line1[0]) + 1))
         new_line = '; '.join(lst)
-        s = f'{new_line}'
+        s += f'{new_line}'
         e.writelines(f'{s}')
     e.close()
 

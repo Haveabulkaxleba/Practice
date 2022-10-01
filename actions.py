@@ -3,7 +3,6 @@ def add_check(surname, name, number, pos, salary):
     lst = whole.split('; ')
     with open('Employees.txt', 'r', encoding='utf-8') as e:
         data_base = e.readlines()
-    # e = open('Employees.txt', 'a', encoding='utf-8')
     for line in data_base:
         data = line.split('; ')
         k = data[1:]
